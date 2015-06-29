@@ -1,7 +1,6 @@
 (function() {
   var bodyEl = document.querySelector('body'),
-      buttonEl = document.querySelector('#yes-still-watching'),
-      bodyClassNoActivity = '.show-no-activity',
+      bodyClassNoActivity = 'show-no-activity',
       secondsBetweenChecks = 5,
       debugMode = false,
       timer;
@@ -24,7 +23,7 @@
           if (debugMode) {
             console.log('show-no-activity is active, clicking button');
           }
-          buttonEl.click();
+          document.getElementById('yes-still-watching').click();
         }
       }
       catch(err) {
