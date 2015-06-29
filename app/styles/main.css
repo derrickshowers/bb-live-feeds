@@ -1,0 +1,66 @@
+html {
+  width: 300px;
+}
+body {
+  background-color: #333;
+  color: rgb(229, 198, 39);
+  padding: 5px 10px 30px
+}
+p {
+  font-size: 14px;
+  line-height: 1.3;
+}
+.disabled-text {
+  display: none;
+}
+.enabled-text {
+  display: block;
+}
+.debug-mode-text {
+  font-size: 10px;
+  font-style: italic;
+}
+.debug-checkbox-fieldset {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  font-size: 8px;
+}
+.debug-checkbox-fieldset input {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #333;
+  border: 1px solid rgb(229, 198, 39);
+  border-radius: 20px;
+  height: 6px;
+  width: 6px;
+  vertical-align: bottom;
+}
+.debug-checkbox-fieldset input:checked {
+  background-color: rgb(229, 198, 39);
+}
+#turn-on-off {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 30px;
+  background: rgb(229, 198, 39);
+  border: none;
+  color: #333;
+  font-size: 14px;
+  outline: none;
+}
+
+/* disabled state */
+.disabled .disabled-text {
+  display: block;
+}
+.disabled .enabled-text {
+  display: none;
+}
+.disabled #turn-on-off {
+  background-color: #FFF;
+}

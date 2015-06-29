@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Big Brother 24/7 Live Feeds",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Watch the Big Brother live streams without the annoying 'I'm still here' button popping up every hour.",
+    "description": "The description of the application"
+  }
+}

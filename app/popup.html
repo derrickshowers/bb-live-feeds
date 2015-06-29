@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css styles/main.css -->
+    <link href="styles/main.css" rel="stylesheet">
+    <!-- endbuild -->
+  </head>
+  <body>
+    <p>This handy extension ensures you're always connected to Big Brother's live feeds.</p>
+    <p class="enabled-text">If you like clicking things, and want to see that pesky orange button every hour, by all means--disable using the button below.</p>
+    <p class="disabled-text">Looks like the extension is currently disabled. Click the button below to get things going.</p>
+    <p class="debug-mode-text">If you turn debug mode on, you'll see each time the Javascript checks to make sure things are running smoothly.</p>
+    <button id="turn-on-off">Disable</button>
+    <fieldset class="debug-checkbox-fieldset">
+      <input id="debug-mode-checkbox" type="checkbox" />
+      <label for="debug-mode-checkbox">Debug mode</label>
+    </fieldset>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/popup.js -->
+    <script src="scripts/popup.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
