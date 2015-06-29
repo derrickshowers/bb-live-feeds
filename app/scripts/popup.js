@@ -4,13 +4,31 @@
       bodyEl = document.querySelector('body'),
       disabledClass = 'disabled';
 
+  // functions to send messages to content script
+  function sendEnabledState() {
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {
+        enabled: !bodyEl.classList.contains(disabledClass)
+      });
+    });
+  }
+  function sendDebugModeState() {
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {
+        debugMode: debugModeCheckbox.checked
+      });
+    });
+  }
+
   // setup initial state
   if (localStorage.getItem('debugMode') === 'true') {
     debugModeCheckbox.checked = true;
+    sendDebugModeState();
   }
   if (localStorage.getItem('enabled') === 'false') {
     bodyEl.classList.add(disabledClass);
     bodyEl.classList.add(disabledClass);
+    sendEnabledState();
     turnOnOffButtonEl.textContent = 'Enable';
   }
 
@@ -22,20 +40,12 @@
       bodyEl.classList.add(disabledClass);
       turnOnOffButtonEl.textContent = 'Enable';
     }
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {
-        enabled: !bodyEl.classList.contains(disabledClass)
-      });
-    });
+    sendEnabledState();
     localStorage.setItem('enabled', !bodyEl.classList.contains(disabledClass));
   });
 
   debugModeCheckbox.addEventListener('change', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {
-        debugMode: debugModeCheckbox.checked
-      });
-    });
+    sendDebugModeState();
     localStorage.setItem('debugMode', debugModeCheckbox.checked);
   });
 

@@ -6,9 +6,12 @@
       debugMode = false,
       timer;
 
-  function outputError() {
-    console.error('There was some sort of error with the Big Brother 25/7 extension. \
+  function outputError(error) {
+    console.error('There was some sort of error with the Big Brother 24/7 extension. \
     Try reloading it. If problem persists, hit up @derrickshowers on Twitter.');
+    if (debugMode) {
+      console.error('The error was: ', error);
+    }
   }
 
   function setupTimer() {
@@ -26,7 +29,7 @@
       }
       catch(err) {
         window.clearInterval(timer);
-        outputError();
+        outputError(err);
       }
     }, secondsBetweenChecks * 1000);
   }
